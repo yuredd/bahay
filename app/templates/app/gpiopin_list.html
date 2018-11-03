@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block content %}
+      <div class="row">
+        <div class="col-12">
+	  <div class="alert alert-dismissible alert-warning">
+	    <h4>Warning!</h4>
+	    <p>These are the Bahay internal settings, please do not change nothing from here if not strictly necessary.</p>
+	  </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="tile">
+              <h3 class="tile-title">GPIO Pins</h3>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Pin</th>
+                  <th>Name</th>
+                  <th>Mode</th>
+                  <th>Setup</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+{% for gpiopin in object_list %}
+                <tr>
+                    <td>{{ gpiopin.pin }}</td>
+                    <td>{{ gpiopin.name }}</td>
+                    <td>{{ gpiopin.mode }}</td>
+                    <td>{{ gpiopin.setup }}</td>
+                    <td>{{ gpiopin.status }}</td>
+                </tr>
+{% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+       </div>
+{% endblock %}
